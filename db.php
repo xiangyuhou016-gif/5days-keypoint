@@ -17,4 +17,3 @@ try {
 } catch (PDOException $e) {
     exit('データベースに接続できませんでした。');
 }
-echo 'データベース接続成功';
