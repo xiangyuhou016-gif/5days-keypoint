@@ -18,18 +18,6 @@ if(!$user){
     exit('社員が見つかりません');
 }
 
-if($_SERVER['REQUEST_METHOD'] === 'POST')
-    {
-        $code = trim($_POST['code'] ?? '');
-        $name = trim($_POST['name'] ?? '');
-        $name_kana = trim($_POST['name_kana'] ?? '');
-        $gender = $_POST['gender'] ?? '';
-
-
-        $sql = 'UPDATE `user` SET `code` = ?, `name` = ?, `name_kana` = ?, `gender` = ? WHERE `id` = ?';
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$code, $name, $name_kana, $gender, $id]);
-    }
 ?>
 
 
@@ -47,15 +35,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     <table border="1">
         <tr>
             <td>社員番号</td>
-            <td><input type="text" name="code" value="<?= $user['code'] ?>" required></td>
+            <td><input type="text" name="code" value="<?= htmlspecialchars($user['code'], ENT_QUOTES, 'UTF-8') ?>" required></td>
         </tr>
         <tr>
             <td>社員名</td>
-            <td><input type="text" name="name" value="<?= $user['name'] ?>" required></td>
+            <td><input type="text" name="name" value="<?= htmlspecialchars($user['name'], ENT_QUOTES, 'UTF-8') ?>" required></td>
         </tr>
         <tr>
             <td>社員名 かな</td>
-            <td><input type="text" name="name_kana" value="<?= $user['name_kana'] ?>" required></td>
+            <td><input type="text" name="name_kana" value="<?= htmlspecialchars($user['name_kana'], ENT_QUOTES, 'UTF-8') ?>" required></td>
         </tr>
         <tr>
             <td>性別</td>
