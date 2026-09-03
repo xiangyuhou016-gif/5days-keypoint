@@ -60,10 +60,10 @@ function genderLabel($gender) {  //判断性别的函数
                 <?= htmlspecialchars($user['updated_at'], ENT_QUOTES, 'UTF-8') ?>
             </td>
             <td>
-                <button type="button">編集</button>
+                <button type="button" onclick="location.href='./update_form.php?id=<?= $user['id'] ?>'">編集</button>
             </td>
             <td>
-                <button type="button">削除</button>
+                <button type="button" onclick="location.href='./delete.php?id=<?= $user['id'] ?>'">削除</button>  
             </td>
         </tr>
 
