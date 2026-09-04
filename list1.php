@@ -25,6 +25,7 @@ function genderLabel($gender) {  //判断性别的函数
 </head>
 <body>
 <button type="button" onclick="location.href='./insert_form.php'">追加</button>
+<button type="button" onclick="location.href='./search_form.php'">検索</button>
 <div>社員一覧表</div>
 <table border="1">
     <tr>
